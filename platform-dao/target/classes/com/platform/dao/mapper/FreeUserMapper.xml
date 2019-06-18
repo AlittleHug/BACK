@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.dao.mapper.FreeUserMapper">
+  <resultMap id="BaseResultMap" type="com.platform.dao.entity.FreeUser">
+    <id column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="userLevel" jdbcType="INTEGER" property="userlevel" />
+    <result column="userHead" jdbcType="VARCHAR" property="userhead" />
+    <result column="loginNumber" jdbcType="INTEGER" property="loginnumber" />
+    <result column="userStatus" jdbcType="INTEGER" property="userstatus" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FreeUser
+    where userId = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from FreeUser
+    where userId = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.platform.dao.entity.FreeUser">
+    insert into FreeUser (userId, userName, userPassword, 
+      userLevel, userHead, loginNumber, 
+      userStatus, remark)
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
+      #{userlevel,jdbcType=INTEGER}, #{userhead,jdbcType=VARCHAR}, #{loginnumber,jdbcType=INTEGER}, 
+      #{userstatus,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.platform.dao.entity.FreeUser">
+    insert into FreeUser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="userlevel != null">
+        userLevel,
+      </if>
+      <if test="userhead != null">
+        userHead,
+      </if>
+      <if test="loginnumber != null">
+        loginNumber,
+      </if>
+      <if test="userstatus != null">
+        userStatus,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userlevel != null">
+        #{userlevel,jdbcType=INTEGER},
+      </if>
+      <if test="userhead != null">
+        #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="loginnumber != null">
+        #{loginnumber,jdbcType=INTEGER},
+      </if>
+      <if test="userstatus != null">
+        #{userstatus,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    insert into FreeUser (userId, userName, userPassword, 
+      userLevel, userHead, loginNumber, 
+      userStatus, remark)
+    values 
+    <foreach collection="list" index="index" item="item" separator=",">
+      (#{item.userid,jdbcType=INTEGER}, #{item.username,jdbcType=VARCHAR}, #{item.userpassword,jdbcType=VARCHAR}, 
+        #{item.userlevel,jdbcType=INTEGER}, #{item.userhead,jdbcType=VARCHAR}, #{item.loginnumber,jdbcType=INTEGER}, 
+        #{item.userstatus,jdbcType=INTEGER}, #{item.remark,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertBatchSelective" parameterType="java.util.List">
+    insert into FreeUser
+    (userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark
+      )
+    values 
+    <foreach collection="list" index="index" item="item" separator=",">
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="item.userid != null">
+          #{item.userid,jdbcType=INTEGER},
+        </if>
+        <if test="item.userid == null">
+          NULL,
+        </if>
+        <if test="item.username != null">
+          #{item.username,jdbcType=VARCHAR},
+        </if>
+        <if test="item.username == null">
+          NULL,
+        </if>
+        <if test="item.userpassword != null">
+          #{item.userpassword,jdbcType=VARCHAR},
+        </if>
+        <if test="item.userpassword == null">
+          NULL,
+        </if>
+        <if test="item.userlevel != null">
+          #{item.userlevel,jdbcType=INTEGER},
+        </if>
+        <if test="item.userlevel == null">
+          NULL,
+        </if>
+        <if test="item.userhead != null">
+          #{item.userhead,jdbcType=VARCHAR},
+        </if>
+        <if test="item.userhead == null">
+          NULL,
+        </if>
+        <if test="item.loginnumber != null">
+          #{item.loginnumber,jdbcType=INTEGER},
+        </if>
+        <if test="item.loginnumber == null">
+          NULL,
+        </if>
+        <if test="item.userstatus != null">
+          #{item.userstatus,jdbcType=INTEGER},
+        </if>
+        <if test="item.userstatus == null">
+          NULL,
+        </if>
+        <if test="item.remark != null">
+          #{item.remark,jdbcType=VARCHAR},
+        </if>
+        <if test="item.remark == null">
+          NULL,
+        </if>
+      </trim>
+    </foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.platform.dao.entity.FreeUser">
+    update FreeUser
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userlevel != null">
+        userLevel = #{userlevel,jdbcType=INTEGER},
+      </if>
+      <if test="userhead != null">
+        userHead = #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="loginnumber != null">
+        loginNumber = #{loginnumber,jdbcType=INTEGER},
+      </if>
+      <if test="userstatus != null">
+        userStatus = #{userstatus,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.platform.dao.entity.FreeUser">
+    update FreeUser
+    set userName = #{username,jdbcType=VARCHAR},
+      userPassword = #{userpassword,jdbcType=VARCHAR},
+      userLevel = #{userlevel,jdbcType=INTEGER},
+      userHead = #{userhead,jdbcType=VARCHAR},
+      loginNumber = #{loginnumber,jdbcType=INTEGER},
+      userStatus = #{userstatus,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatchByPrimaryKey" parameterType="java.util.List">
+    update FreeUser
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.userid} then #{item.username}
+        </foreach>
+      </trim>
+      <trim prefix="userpassword =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.userid} then #{item.userpassword}
+        </foreach>
+      </trim>
+      <trim prefix="userlevel =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.userid} then #{item.userlevel}
+        </foreach>
+      </trim>
+      <trim prefix="userhead =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.userid} then #{item.userhead}
+        </foreach>
+      </trim>
+      <trim prefix="loginnumber =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.userid} then #{item.loginnumber}
+        </foreach>
+      </trim>
+      <trim prefix="userstatus =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.userid} then #{item.userstatus}
+        </foreach>
+      </trim>
+      <trim prefix="remark =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.userid} then #{item.remark}
+        </foreach>
+      </trim>
+    </trim>
+    where userId in 
+    <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+       #{item.userid} 
+    </foreach>
+  </update>
+  <update id="updateBatchByPrimaryKeySelective" parameterType="java.util.List">
+    update FreeUser
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.username != null ">
+            when  #{item.userid} then #{item.username}
+          </if>
+          <if test="item.username == null ">
+            when  #{item.userid} then FreeUser.userName
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="userpassword =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.userpassword != null ">
+            when  #{item.userid} then #{item.userpassword}
+          </if>
+          <if test="item.userpassword == null ">
+            when  #{item.userid} then FreeUser.userPassword
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="userlevel =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.userlevel != null ">
+            when  #{item.userid} then #{item.userlevel}
+          </if>
+          <if test="item.userlevel == null ">
+            when  #{item.userid} then FreeUser.userLevel
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="userhead =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.userhead != null ">
+            when  #{item.userid} then #{item.userhead}
+          </if>
+          <if test="item.userhead == null ">
+            when  #{item.userid} then FreeUser.userHead
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="loginnumber =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.loginnumber != null ">
+            when  #{item.userid} then #{item.loginnumber}
+          </if>
+          <if test="item.loginnumber == null ">
+            when  #{item.userid} then FreeUser.loginNumber
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="userstatus =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.userstatus != null ">
+            when  #{item.userid} then #{item.userstatus}
+          </if>
+          <if test="item.userstatus == null ">
+            when  #{item.userid} then FreeUser.userStatus
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark =case userid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.remark != null ">
+            when  #{item.userid} then #{item.remark}
+          </if>
+          <if test="item.remark == null ">
+            when  #{item.userid} then FreeUser.remark
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where userId in 
+    <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+       #{item.userid} 
+    </foreach>
+  </update>
+  <!--根据用户名和密码查询用户信息-->
+  <select id="selectByUserNameAndPsw" parameterType="com.platform.common.vm.UserVM" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FreeUser
+    where userName = #{userName,jdbcType=VARCHAR} and userPassword = #{userPassword,jdbcType=VARCHAR}
+  </select>
+  <!--根据用户名或密码查询用户信息-->
+  <select id="selectByUserName" parameterType="com.platform.common.vm.UserVM" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from FreeUser
+    where userName = #{userName,jdbcType=VARCHAR} or userPassword = #{userName,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.dao.mapper.FreeMenuMapper">
+  <resultMap id="BaseResultMap" type="com.platform.dao.entity.FreeMenu">
+    <id column="menuId" jdbcType="INTEGER" property="menuid" />
+    <result column="menuCode" jdbcType="VARCHAR" property="menucode" />
+    <result column="menuName" jdbcType="VARCHAR" property="menuname" />
+    <result column="parentMenuCode" jdbcType="VARCHAR" property="parentmenucode" />
+    <result column="menuLevel" jdbcType="INTEGER" property="menulevel" />
+    <result column="menuPath" jdbcType="VARCHAR" property="menupath" />
+    <result column="menuStatus" jdbcType="INTEGER" property="menustatus" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    menuId, menuCode, menuName, parentMenuCode, menuLevel, menuPath, menuStatus, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FreeMenu
+    where menuId = #{menuid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from FreeMenu
+    where menuId = #{menuid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.platform.dao.entity.FreeMenu">
+    insert into FreeMenu (menuId, menuCode, menuName, 
+      parentMenuCode, menuLevel, menuPath, 
+      menuStatus, remark)
+    values (#{menuid,jdbcType=INTEGER}, #{menucode,jdbcType=VARCHAR}, #{menuname,jdbcType=VARCHAR}, 
+      #{parentmenucode,jdbcType=VARCHAR}, #{menulevel,jdbcType=INTEGER}, #{menupath,jdbcType=VARCHAR}, 
+      #{menustatus,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.platform.dao.entity.FreeMenu">
+    insert into FreeMenu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuid != null">
+        menuId,
+      </if>
+      <if test="menucode != null">
+        menuCode,
+      </if>
+      <if test="menuname != null">
+        menuName,
+      </if>
+      <if test="parentmenucode != null">
+        parentMenuCode,
+      </if>
+      <if test="menulevel != null">
+        menuLevel,
+      </if>
+      <if test="menupath != null">
+        menuPath,
+      </if>
+      <if test="menustatus != null">
+        menuStatus,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuid != null">
+        #{menuid,jdbcType=INTEGER},
+      </if>
+      <if test="menucode != null">
+        #{menucode,jdbcType=VARCHAR},
+      </if>
+      <if test="menuname != null">
+        #{menuname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentmenucode != null">
+        #{parentmenucode,jdbcType=VARCHAR},
+      </if>
+      <if test="menulevel != null">
+        #{menulevel,jdbcType=INTEGER},
+      </if>
+      <if test="menupath != null">
+        #{menupath,jdbcType=VARCHAR},
+      </if>
+      <if test="menustatus != null">
+        #{menustatus,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    insert into FreeMenu (menuId, menuCode, menuName, 
+      parentMenuCode, menuLevel, menuPath, 
+      menuStatus, remark)
+    values 
+    <foreach collection="list" index="index" item="item" separator=",">
+      (#{item.menuid,jdbcType=INTEGER}, #{item.menucode,jdbcType=VARCHAR}, #{item.menuname,jdbcType=VARCHAR}, 
+        #{item.parentmenucode,jdbcType=VARCHAR}, #{item.menulevel,jdbcType=INTEGER}, #{item.menupath,jdbcType=VARCHAR}, 
+        #{item.menustatus,jdbcType=INTEGER}, #{item.remark,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertBatchSelective" parameterType="java.util.List">
+    insert into FreeMenu
+    (menuId, menuCode, menuName, parentMenuCode, menuLevel, menuPath, menuStatus, remark
+      )
+    values 
+    <foreach collection="list" index="index" item="item" separator=",">
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="item.menuid != null">
+          #{item.menuid,jdbcType=INTEGER},
+        </if>
+        <if test="item.menuid == null">
+          NULL,
+        </if>
+        <if test="item.menucode != null">
+          #{item.menucode,jdbcType=VARCHAR},
+        </if>
+        <if test="item.menucode == null">
+          NULL,
+        </if>
+        <if test="item.menuname != null">
+          #{item.menuname,jdbcType=VARCHAR},
+        </if>
+        <if test="item.menuname == null">
+          NULL,
+        </if>
+        <if test="item.parentmenucode != null">
+          #{item.parentmenucode,jdbcType=VARCHAR},
+        </if>
+        <if test="item.parentmenucode == null">
+          NULL,
+        </if>
+        <if test="item.menulevel != null">
+          #{item.menulevel,jdbcType=INTEGER},
+        </if>
+        <if test="item.menulevel == null">
+          NULL,
+        </if>
+        <if test="item.menupath != null">
+          #{item.menupath,jdbcType=VARCHAR},
+        </if>
+        <if test="item.menupath == null">
+          NULL,
+        </if>
+        <if test="item.menustatus != null">
+          #{item.menustatus,jdbcType=INTEGER},
+        </if>
+        <if test="item.menustatus == null">
+          NULL,
+        </if>
+        <if test="item.remark != null">
+          #{item.remark,jdbcType=VARCHAR},
+        </if>
+        <if test="item.remark == null">
+          NULL,
+        </if>
+      </trim>
+    </foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.platform.dao.entity.FreeMenu">
+    update FreeMenu
+    <set>
+      <if test="menucode != null">
+        menuCode = #{menucode,jdbcType=VARCHAR},
+      </if>
+      <if test="menuname != null">
+        menuName = #{menuname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentmenucode != null">
+        parentMenuCode = #{parentmenucode,jdbcType=VARCHAR},
+      </if>
+      <if test="menulevel != null">
+        menuLevel = #{menulevel,jdbcType=INTEGER},
+      </if>
+      <if test="menupath != null">
+        menuPath = #{menupath,jdbcType=VARCHAR},
+      </if>
+      <if test="menustatus != null">
+        menuStatus = #{menustatus,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menuId = #{menuid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.platform.dao.entity.FreeMenu">
+    update FreeMenu
+    set menuCode = #{menucode,jdbcType=VARCHAR},
+      menuName = #{menuname,jdbcType=VARCHAR},
+      parentMenuCode = #{parentmenucode,jdbcType=VARCHAR},
+      menuLevel = #{menulevel,jdbcType=INTEGER},
+      menuPath = #{menupath,jdbcType=VARCHAR},
+      menuStatus = #{menustatus,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where menuId = #{menuid,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatchByPrimaryKey" parameterType="java.util.List">
+    update FreeMenu
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="menucode =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.menuid} then #{item.menucode}
+        </foreach>
+      </trim>
+      <trim prefix="menuname =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.menuid} then #{item.menuname}
+        </foreach>
+      </trim>
+      <trim prefix="parentmenucode =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.menuid} then #{item.parentmenucode}
+        </foreach>
+      </trim>
+      <trim prefix="menulevel =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.menuid} then #{item.menulevel}
+        </foreach>
+      </trim>
+      <trim prefix="menupath =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.menuid} then #{item.menupath}
+        </foreach>
+      </trim>
+      <trim prefix="menustatus =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.menuid} then #{item.menustatus}
+        </foreach>
+      </trim>
+      <trim prefix="remark =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          when  #{item.menuid} then #{item.remark}
+        </foreach>
+      </trim>
+    </trim>
+    where menuId in 
+    <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+       #{item.menuid} 
+    </foreach>
+  </update>
+  <update id="updateBatchByPrimaryKeySelective" parameterType="java.util.List">
+    update FreeMenu
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="menucode =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.menucode != null ">
+            when  #{item.menuid} then #{item.menucode}
+          </if>
+          <if test="item.menucode == null ">
+            when  #{item.menuid} then FreeMenu.menuCode
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="menuname =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.menuname != null ">
+            when  #{item.menuid} then #{item.menuname}
+          </if>
+          <if test="item.menuname == null ">
+            when  #{item.menuid} then FreeMenu.menuName
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="parentmenucode =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.parentmenucode != null ">
+            when  #{item.menuid} then #{item.parentmenucode}
+          </if>
+          <if test="item.parentmenucode == null ">
+            when  #{item.menuid} then FreeMenu.parentMenuCode
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="menulevel =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.menulevel != null ">
+            when  #{item.menuid} then #{item.menulevel}
+          </if>
+          <if test="item.menulevel == null ">
+            when  #{item.menuid} then FreeMenu.menuLevel
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="menupath =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.menupath != null ">
+            when  #{item.menuid} then #{item.menupath}
+          </if>
+          <if test="item.menupath == null ">
+            when  #{item.menuid} then FreeMenu.menuPath
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="menustatus =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.menustatus != null ">
+            when  #{item.menuid} then #{item.menustatus}
+          </if>
+          <if test="item.menustatus == null ">
+            when  #{item.menuid} then FreeMenu.menuStatus
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark =case menuid" suffix="end,">
+        <foreach collection="list" index="index" item="item" separator=" ">
+          <if test="item.remark != null ">
+            when  #{item.menuid} then #{item.remark}
+          </if>
+          <if test="item.remark == null ">
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where menuId in 
+    <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+       #{item.menuid} 
+    </foreach>
+  </update>
+</mapper>

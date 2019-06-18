@@ -1,0 +1,52 @@
+2019-5-20 09:31:04 main INFO Starting PlatformWebApplication on forget with PID 20524 (E:\A_TeamWork\TeamWork_back\branches\platform\platform-web\target\classes started by zhimi in E:\A_TeamWork\TeamWork_back\branches\platform)
+2019-5-20 09:31:04 main DEBUG Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2019-5-20 09:31:04 main INFO No active profile set, falling back to default profiles: default
+2019-5-20 09:31:47 main INFO Started PlatformWebApplication in 47.134 seconds (JVM running for 61.86)
+2019-5-20 09:33:20 http-nio-8762-exec-1 DEBUG =====进入登录校验操作=====
+2019-5-20 09:33:26 http-nio-8762-exec-1 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? and userPassword = ? 
+2019-5-20 09:33:27 http-nio-8762-exec-1 DEBUG ==> Parameters: admin(String), @zhufeng.com#UAT(String)
+2019-5-20 09:33:27 http-nio-8762-exec-1 DEBUG <==      Total: 0
+2019-5-20 09:33:27 http-nio-8762-exec-1 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? or userPassword = ? 
+2019-5-20 09:33:27 http-nio-8762-exec-1 DEBUG ==> Parameters: admin(String), admin(String)
+2019-5-20 09:33:27 http-nio-8762-exec-1 DEBUG <==      Total: 0
+2019-5-20 09:33:46 http-nio-8762-exec-4 DEBUG =====进入登录校验操作=====
+2019-5-20 09:33:47 http-nio-8762-exec-4 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? and userPassword = ? 
+2019-5-20 09:33:47 http-nio-8762-exec-4 DEBUG ==> Parameters: admin(String), @zhufeng.com#UAT(String)
+2019-5-20 09:33:47 http-nio-8762-exec-4 DEBUG <==      Total: 0
+2019-5-20 09:33:47 http-nio-8762-exec-4 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? or userPassword = ? 
+2019-5-20 09:33:47 http-nio-8762-exec-4 DEBUG ==> Parameters: admin(String), admin(String)
+2019-5-20 09:33:47 http-nio-8762-exec-4 DEBUG <==      Total: 0
+2019-5-20 09:34:55 http-nio-8762-exec-3 DEBUG =====进入登录校验操作=====
+2019-5-20 09:34:55 http-nio-8762-exec-3 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? and userPassword = ? 
+2019-5-20 09:34:55 http-nio-8762-exec-3 DEBUG ==> Parameters: admin(String), @zhufeng.com#UAT(String)
+2019-5-20 09:34:55 http-nio-8762-exec-3 DEBUG <==      Total: 0
+2019-5-20 09:34:55 http-nio-8762-exec-3 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? or userPassword = ? 
+2019-5-20 09:34:55 http-nio-8762-exec-3 DEBUG ==> Parameters: admin(String), admin(String)
+2019-5-20 09:34:56 http-nio-8762-exec-3 DEBUG <==      Total: 0
+2019-5-20 09:35:11 http-nio-8762-exec-2 DEBUG =====进入登录校验操作=====
+2019-5-20 09:35:11 http-nio-8762-exec-2 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? and userPassword = ? 
+2019-5-20 09:35:11 http-nio-8762-exec-2 DEBUG ==> Parameters: zhimin_hou@163.com(String), 123456(String)
+2019-5-20 09:35:11 http-nio-8762-exec-2 DEBUG <==      Total: 1
+2019-5-20 09:38:12 main INFO Starting PlatformWebApplication on forget with PID 27760 (E:\A_TeamWork\TeamWork_back\branches\platform\platform-web\target\classes started by zhimi in E:\A_TeamWork\TeamWork_back\branches\platform)
+2019-5-20 09:38:12 main DEBUG Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2019-5-20 09:38:12 main INFO No active profile set, falling back to default profiles: default
+2019-5-20 09:38:25 main INFO Started PlatformWebApplication in 14.36 seconds (JVM running for 19.984)
+2019-5-20 09:39:01 http-nio-8762-exec-1 DEBUG =====进入登录校验操作=====
+2019-5-20 09:39:03 http-nio-8762-exec-1 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? and userPassword = ? 
+2019-5-20 09:39:03 http-nio-8762-exec-1 DEBUG ==> Parameters: zhimin_hou@163.com(String), 123456(String)
+2019-5-20 09:39:03 http-nio-8762-exec-1 DEBUG <==      Total: 1
+2019-5-20 09:41:25 main INFO Starting PlatformWebApplication on forget with PID 18876 (E:\A_TeamWork\TeamWork_back\branches\platform\platform-web\target\classes started by zhimi in E:\A_TeamWork\TeamWork_back\branches\platform)
+2019-5-20 09:41:25 main DEBUG Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2019-5-20 09:41:25 main INFO No active profile set, falling back to default profiles: default
+2019-5-20 09:41:34 main INFO Started PlatformWebApplication in 10.803 seconds (JVM running for 15.42)
+2019-5-20 09:42:02 http-nio-8762-exec-1 DEBUG =====进入登录校验操作=====
+2019-5-20 09:42:07 http-nio-8762-exec-1 DEBUG ==>  Preparing: select userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark from FreeUser where userName = ? and userPassword = ? 
+2019-5-20 09:42:07 http-nio-8762-exec-1 DEBUG ==> Parameters: zhimin_hou@163.com(String), 123456(String)
+2019-5-20 09:42:07 http-nio-8762-exec-1 TRACE <==    Columns: userId, userName, userPassword, userLevel, userHead, loginNumber, userStatus, remark
+2019-5-20 09:42:07 http-nio-8762-exec-1 TRACE <==        Row: 1, zhimin_hou@163.com, 123456, 1, , 0, 1, null
+2019-5-20 09:42:07 http-nio-8762-exec-1 DEBUG <==      Total: 1
+2019-5-20 09:52:27 main INFO Starting PlatformWebApplication on forget with PID 33452 (E:\A_TeamWork\TeamWork_back\branches\platform\platform-web\target\classes started by zhimi in E:\A_TeamWork\TeamWork_back\branches\platform)
+2019-5-20 09:52:27 main DEBUG Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2019-5-20 09:52:27 main INFO No active profile set, falling back to default profiles: default
+2019-5-20 09:52:35 main INFO Started PlatformWebApplication in 9.189 seconds (JVM running for 12.399)
+2019-5-20 09:53:15 http-nio-8762-exec-2 DEBUG =====进入登录校验操作=====

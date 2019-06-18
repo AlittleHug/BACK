@@ -1,0 +1,20 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: TeamBack
+  datasource:
+    #服务器
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://118.24.123.209/HOULI
+      username: lixianyuan
+      password: lixianyuan
+    #本地
+#        driver-class-name: com.mysql.jdbc.Driver
+#        url: jdbc:mysql://127.0.0.1/forget?serverTimezone=GMT%2B8&useSSL=false
+#        username: root
+#        password: root
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
